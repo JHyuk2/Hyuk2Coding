@@ -1,11 +1,7 @@
-count_dict = {
-    '2':0,
-    '3':0,
-    '4':0,
-    '5':0,
-    }
+tmp = [3,2,1]
 
-count =2
+tmp.remove(3)
+tmp.remove(2)
+tmp.remove(1)
 
-count_dict[str(count)] += 1
-print(count_dict)
+print(tmp==[])

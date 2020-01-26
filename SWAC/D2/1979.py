@@ -9,31 +9,57 @@
 1 1 1 0 1
 '''
 
+def puzzle_counter(puzzle, find_num):
+    N = len(puzzle)
+
+    # 1) 각 길이만큼 담을 수 있는 딕셔너리 생성
+    count_dict = {
+        str(i):0 for i in range(1, N+1) # 1, 2, ..., N
+    } 
+    
+    # 퍼즐은 i * j의 2차원 배열
+    for i in range(N):
+        for j in range(N):
+            length = 0
+            if j == 0 and puzzle[i][j] == 1: # 벽에 붙어서 출발하는 경우,
+                for k in puzzle[i]:
+                    if k == 1:
+                        length +=1
+                        continue
+                    else: # k ==0
+                        count_dict[str(length)] += 1
+                        break
+                else: # 벽에 닿았을 때.
+                    count_dict[str(length)] += 1
+
+            else: # j >= 1인 경우
+                if puzzle[i][j] == 1 and puzzle[i][j-1] == 0: # 왼쪽이 막힌 상태일 때
+                    for k in range(N-j):
+                        if puzzle[i][j+k] == 1:
+                            length += 1
+                            continue
+                        else:
+                            count_dict[str(length)] += 1
+                            break
+                    else:
+                        count_dict[str(length)] += 1
+
+    return count_dict[str(find_num)]
+
 T = int(input())
 
 for test_case in range(1, T+1):
     N, k = tuple(map(int, input().split()))
-    temp_list = [[] for _ in range(N)]
+    puzzle = [[] for _ in range(N)]
 
     # 1) 배열 생성 및 값 입력
     for n in range(N):
-        temp_list[n] = list(map(int, input().split()))
+        puzzle[n] = list(map(int, input().split()))
 
-    # 2) 단어의 최대길이 n에 따라 몇 개의 단어가 들어갈 수 있는지 count
-    count_dict = {
-        str(i):0 for i in range(2, N+1) # 2, 3, 4, 5
-    }
+    # 2) 카운팅을 위한 가로세로 반전 퍼즐 생성
+    reversed_puzzle = list(zip(*puzzle)) 
 
+    real = puzzle_counter(puzzle, k)
+    rv = puzzle_counter(reversed_puzzle, k)
     
-    # 0의 바로 오른쪽에서만 출발 가능하다. but, len =1 인경우는 불가능하다.
-    for i in range(N):
-        for j in range(N):
-            k = N-j
-            if j==0 and (temp_list[i][j] == 1): # 가로 search 가능한 경우
-                count = sum(temp_list[i][j:k])
-            elif (temp_list[i][j-1] == 0) and (temp_list[i][j] == 1): 
-                count = sum(temp_list[i][j:k])
-                
-                if count != 1:
-                    count_dict[str(count)] += 1
-            elif (temp_list[i][j] == 1) and (temp_list[i-1][j]==0 or i==0) : # 세로 search 가능한경우
+    print(f'#{ test_case } {real + rv}')

@@ -125,33 +125,28 @@
 
 # -------------------------------------------------------------------------################
 
-def loopfinder(text):
-    if len(text) < 10:
-        max_loop = len(text)
-    else:
-        max_loop = 10
+def loop_finder(text):
+    max_loop = 10 if len(text) >10 else len(text)
 
-    for i in range(max_loop):
-        if i == 0:
-            continue
-        elif text[i+1:].count(text[:i+1]) > 1: #
-            continue
-        else: ## loop를 벗어났을 때
-            if i == 1: # 즉 하나의 마디도 없는 경우
-                tmp = text # 텍스트 그 자체가 마디임.
-                break
-            else: # i >1 인 경우 (즉 마디가 있는 경우)
-                tmp = text[:i]
-                break
-    return tmp
+    for l in range(1, max_loop+1): # i =1 ~ 10 까지 순회하겠지.
+        flag = 1
+        for i in range(1, l):
+            if text[:i+1] == text[i+1:(i+1)*2]:
+                # print(text[:i+1] == text[i+1:(i+1)*2])
+                # print(text[:i+1], text[i+1:(i+1)*2], i+1)
+                return i+1
+                
+    else: # 루프 탈출 못했을 때
+        return 1
 
+    return flag        
+    
 
 T = int(input())
 
-for i in range(T):
-    test_case = input()
-    temp = loopfinder(test_case)
-    while test_case != temp:
-        temp = loopfinder(temp)
+for test_case in range(T):
+    text = input()
+    result = loop_finder(text)
+    print(f'#{ test_case +1 } {result}')
 
-    print(temp)
+## 사실 메모리에러만 나지 않는다면, 성능면에선 앞의 코드로 돌리는 게 더 효과적이다.
