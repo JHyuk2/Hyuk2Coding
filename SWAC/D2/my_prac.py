@@ -1,7 +1,6 @@
 tmp = [3,2,1]
+a = tmp.pop()
+b = tmp.pop()
 
-tmp.remove(3)
-tmp.remove(2)
-tmp.remove(1)
 
-print(tmp==[])
+print(list(i for i in range(1, 3)))
