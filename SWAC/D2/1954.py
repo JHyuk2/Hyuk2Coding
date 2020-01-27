@@ -1,61 +1,83 @@
 ## 먼저 달팽이 모양을 만들자.
 
-N = 4
-
-tmp_list = [[0 for _ in range(N)] for _ in range(N)] # N by N 행렬 생성
-# num_list = [i for i in range(1, N*N + 1)]
-# print(sorted(num_list, reverse =True).pop()) # 1부터 하나씩 출력
-
-for i in range(N):
-    for j in range(N):
-        print((i, j), end = ' ')
-    print()
-
-
-cnt, x, y = 1, 0, 0
-length = N # => 3
-while cnt <=8 : # 더 이상 넣을 숫자가 없을 때까지 반복
-    # => 오른쪽방향 이동
-    if x == 0 and y == 0: #시작위치
-        for k in range(length): # 0, 1 ,2
-            tmp_list[x][y+k] = cnt
-            cnt += 1 
-
-            if k == length -1:
-                y = y+k
-                x += 1
-                length -= 1
-        print(cnt)
-
-    # ↓ 아랫쪽 방향 이동
-    elif y == length and x != length: # length = 2
-        for k in range(length): # 1, 2, length = 2
-            tmp_list[x+k][y] = cnt
-            cnt += 1
-            if k+1 == length:
-                x = x+k
-            print(cnt)
-
-    # <- 왼쪽방향
-    elif y == length and x == length: 
-        for k in range(length): # 0, 1, length = 2
-            tmp_list[x][y-(k+1)] = cnt # x =2, y = 2
-            cnt += 1
-            if k+1 == length:
-                y = y-k-1
-                length -= 1
-            print(cnt, x,y)
-    else:
-        cnt += 1
-    # 위쪽 방향
-
-
-
+def snail_run(step, direction, now_x, now_y, snail): # idx_now는 
+    num = snail[now_x][now_y] # (0, 0) = 1
     
+    # 오른쪽 방향일 때
+    if direction == 0:
+        if step == len(snail):
+            for s in range(1, step): # if step==5: loop 4 / if step= 3: 
+                num += 1 
+                snail[now_x][now_y+s] = num
+            new_x = now_x
+            new_y = now_y + step -1
+        else:
+            for s in range(1, step+1): # if step==5: loop 4 / if step= 3: 
+                num += 1 
+                snail[now_x][now_y+s] = num
+            new_x = now_x
+            new_y = now_y + step
+    
+    # 아래 방향일 때
+    elif direction == 1:
+        for s in range(1, step+1): # if step == 4: loop 3
+            num += 1
+            snail[now_x+s][now_y] = num
+        new_x = now_x + step
+        new_y = now_y
 
-                
-print()
-for i in range(N):
-    for j in range(N):
-        print(tmp_list[i][j], end = ' ')
-    print()
+    # 왼쪽 방향일 때
+    elif direction == 2:
+        for s in range(1, step+1): # if step == 4: loop 3
+            num += 1
+            snail[now_x][now_y-s] = num 
+        new_x = now_x
+        new_y = now_y - step
+
+    # 위로 올라갈 때
+    elif direction == 3:
+        for s in range(1, step+1): # if step == 3: loop 2
+            num += 1
+            snail[now_x-s][now_y] = num 
+        new_x = now_x - step
+        new_y = now_y
+
+    # direction >= 4인 경우
+    else: 
+        direction = 0
+        return snail_run(step, direction, now_x, now_y, snail)
+
+
+    direction += 1
+
+    return new_x, new_y, snail, direction
+
+
+
+T = int(input())
+
+for test_case in range(1, T+1):
+    N = int(input())
+    snail = [[1 for _ in range(N)] for _ in range(N)] # 4 by 4행렬
+
+    step = N
+    direction = 0
+    x, y = 0, 0
+
+
+    for step in range(N, 0, -1):
+        
+        if step == N:
+            new_x, new_y, snail, direction = snail_run(step, direction, 0, 0, snail) # 한 번만 반복
+            
+        else: # step !=N
+            for _ in range(2):
+                new_x, new_y, snail, direction = snail_run(step, direction, new_x, new_y, snail) # 두 번씩 반복
+            
+    print(f'#{test_case}')
+    for i in range(N):
+        for j in range(N):
+            print((snail[i][j]), end = ' ')
+        print()
+
+        
