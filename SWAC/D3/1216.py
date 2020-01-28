@@ -10,7 +10,7 @@ def check_palindrome(text):
             break
     else:
         flag = 1
-    return flag           
+    return flag
 
 def find_palindrome(tmp_list, k):
     cnt = 0
@@ -22,18 +22,30 @@ def find_palindrome(tmp_list, k):
 
             if check_palindrome(tmp): # check == 1일경우 회문
                 cnt += 1
-
     return cnt
 
-for test_case in range(10):
-    k = int(input()) # 회문의 길이
-    temp_list = [] # 입력받을 배열
+# 100 x 100 size
 
-    for _ in range(8):
+for test_case in range(10):
+    n = int(input())
+    temp_list = [] # 입력받을 배열
+    
+    # 배열생성됨
+    for _ in range(100):
         temp = input()
         temp_list.append(temp)
 
     rotate_temp = list(zip(*temp_list)) # 세로방향 찾기
 
-    result = find_palindrome(temp_list, k) + find_palindrome(rotate_temp, k)
-    print(f'#{ test_case +1 } { result }')
+    # 찾는 길이를 줄여나가면서 서치하다가, 하나라도 걸리면 out?
+    result = 0
+
+    for k in range(100, 0, -1):
+        cnt1 = find_palindrome(temp_list, k)  # 0이 아니라면
+        cnt2 = find_palindrome(rotate_temp, k)
+        result += (cnt1+cnt2)
+        
+        if result != 0:
+            break
+
+    print(f'#{ test_case +1 } { k }')
