@@ -1,26 +1,74 @@
-## 즉, 인덱스가 0~6까지 있으면 0 -> 6 (0+6) -> 1(8, 15) -> 5 -> 2 -> 4 의 순서로 순회해야 한다.
-N = 8
-middle = N//2 # 3
-cnt = 0
+## 처음부터 다시풀자.
 
-for x in range(N):
-    for y in range(N):
-        print((x,y), end =' ')
+# tmp_list = [[0 for j in range(6)] for i in range(6)]
+# tmp_list[0] = [1, 1, 1, 0, 2, 2]
+# tmp_list[1] = [0 for _ in range(6)]
+# tmp_list[3] = [2, 2, 0, 0, 1, 1]
+# tmp_list[5] = [1, 2, 1, 0 ,0, 1]
+
+'''
+1 0 0 0 0 0 0 0 2 0 0 0 1 0 1
+0 0 0 0 0 0 0 0 0 0 1 0 0 2 0
+0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 2 0 0 0 0 1 2 0 0 0 0 0
+0 0 0 0 2 0 2 0 0 0 2 0 0 0 0
+0 0 2 0 0 0 1 1 1 0 0 0 0 0 0
+0 1 1 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 2 0 0 0 2 0 1 0 0 0 0 0 1
+0 0 0 0 1 0 0 0 0 0 0 0 1 0 0
+0 0 0 1 0 0 0 0 0 0 0 0 0 0 2
+0 0 0 0 0 1 2 0 0 1 0 0 0 2 0
+0 1 0 2 0 0 0 0 0 0 0 0 0 0 1
+0 0 0 2 2 0 2 0 0 0 0 2 0 2 0
+'''
+
+
+tmp_list = []
+for i in range(15):
+    tmp = list(map(int, input().split()))
+    tmp_list.append(tmp)
+
+print('-----------tmp------------------------------')
+
+N = len(tmp_list)
+for i in range(N):
+    for j in range(N):
+        print(tmp_list[i][j], end = ' ')
     print()
 
-print('---------------------')
 
 
-for x in range(N):
-    ny = 0
-    cnt = 0
-    for y in range(N):
-        print((x ,ny), end =' ')
-        if ny < middle:
-            cnt +=1
-            ny = N-cnt
-        else: #nx >= middle
-            ny = cnt
+## 두번 반전한 결과는 똑같다. (상관무)
+## 
+
+rotate_tmp = list(map(list, zip(*tmp_list)))
+
+
+print('-----------after magnet------------------------------')
+
+remain = 0
+for i in range(N):
+    for j in range(N):
+        if rotate_tmp[i][j] == 1 and j+1 < N: # 어짜피 j+1 == N(마지막) 인 경우, 버려야 할 값이다.
+            if 2 in rotate_tmp[i][j+1:]: # 카운트 될 경우 remain.
+                remain += 1
+                rotate_tmp[i][j] = 1
+            else:
+                rotate_tmp[i][j] = 0
+        elif rotate_tmp[i][j] == 2 and j > 0: # j == 0또한 버려야 할 값.
+            if 1 in rotate_tmp[i][:j]:
+                remain +=1
+                rotate_tmp[i][j] = 2   
+            else:
+                rotate_tmp[i][j] = 0
+        else:
+            rotate_tmp[i][j] = 0
+    
+new_tmp = list(map(list, zip(*rotate_tmp))) 
+
+for i in range(N):
+    for j in range(N):
+        print(new_tmp[i][j], end = ' ')
     print()
-
-## 이렇게 한 다음 zip으로 가로세로 반전시켜주면 원하는 순서로 이터레이트 시킬 수 있지.
