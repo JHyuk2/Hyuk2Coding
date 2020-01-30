@@ -1,5 +1,3 @@
-a = '9550 9556 9550 9553 9558 9551 9551 9551'
-
 def cycle(tmp_list):  
     while True: #무한반복
         step = 0    
@@ -16,10 +14,8 @@ def cycle(tmp_list):
                 tmp.append(tmp_list[0] -step)
                 tmp_list = tmp
 
-T = int(input())
-
-for test_case in range(1, T):
+for test_case in range(1, 11):
     N = int(input()) # 안씀
-    tmp_list = list(map(int, a.split()))
+    tmp_list = list(map(int, input().split()))
     result = list(map(str, cycle(tmp_list)))
-    print(f"{ test_case } { ' '.join(result) }")
+    print(f"#{ test_case } { ' '.join(result) }")

@@ -14,10 +14,10 @@ def flatten(input_list): # 평탄화 작업 한번.
         input_list[low_idx] += 1
 
     elif (result) <= 1:
-        if abs(input_list.count(high) - input_list.count(low)) % 2: # 평탄화 가능한 게 1임.
-            result = 1 #멈춰야됨
+        if abs(input_list.count(high) - input_list.count(low)) % 2: # 개수가 안맞을 때
+            result = 1 #멈춤
             flag = 0            
-        else: # 
+        else: 
             result = 0
     
     result = max(input_list)-min(input_list)
