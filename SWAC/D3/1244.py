@@ -17,14 +17,26 @@ count == 3:
 def swap(numbers, count):
     # 1) 내림차순으로 정렬 => 가장 큰 수
     max_result = sorted(numbers, reverse = True)
-    
+    numbers = list(numbers)
     # 1-2) 들어온 숫자가 이미 최댓값인 경우
+
     if numbers == max_result:
-        if count %2 == 0: # count가 짝수인경우
+        # 1-2-a) 동일한 숫자끼리 교환하면 최댓값을 유지할 수 있음
+        isGetSame = False
+        for n in numbers:
+            if numbers.count(n) >=2:
+                isGetSame = True
+        if isGetSame == True:
             count = 0
             return numbers, count
-        else: # count가 홀수인 경우
+        # 1-2-b) 동일한 숫자가 없고 count가 짝수인 경우
+        elif count %2 == 0: 
+            count = 0
+            return numbers, count
+        # 1-2-c) 동일한 숫자가 없고 count가 홀수인 경우
+        else:
             numbers[-1], numbers[-2] = numbers[-2], numbers[-1] # 맨뒤숫자를 서로 바꿈
+            count = 0
             return numbers, count
     
     # 2) max_result 값과 비교해서 같은 인덱스에 있으면 tmp로 저장 # 후에 같은 인덱스에 insert해줄 예정.
@@ -54,7 +66,7 @@ def swap(numbers, count):
             find_max.reverse()
             swap_place = 0
             for n in numbers_copy[:max_count]:
-                if n > numbers_copy[0]:
+                if int(n) < int(numbers_copy[0]):
                     swap_place +=1
             swap_index = find_max[swap_place] # 543777 & cnt=3 => 5는 index3의 7과 교환.
             numbers_copy[0], numbers_copy[swap_index] = numbers_copy[swap_index], numbers_copy[0]
@@ -78,7 +90,7 @@ def swap(numbers, count):
     count -= 1
     return numbers_copy, count
 
-## 너무 지저분하다... gg
+## 너무 지저분하지만... 다 왔다
 
 T = int(input())
 
