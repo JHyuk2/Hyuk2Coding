@@ -1,4 +1,4 @@
-## ----- 이러면 타임에러 나옴. 다시짜보자.
+## ----- 이중포문은 비효율적이다. (y값이 정해져있기 때문)
 """
 # 숫자가 들어왔을 때 좌표를 찾는 함수
 def find_point(num):
@@ -149,10 +149,10 @@ def star(num1, num2):
     real_point = tuple(map(sum, zip(p1,p2)))
     return find_num(real_point)
 
-print(star(2, 3))
-# T = int(input())
 
-# for test_case in range(1, T+1):
-#     num1, num2 = map(int, input().split())
-#     result = star(num1, num2)
-#     print(f'#{test_case} {result}')
+T = int(input())
+
+for test_case in range(1, T+1):
+    num1, num2 = map(int, input().split())
+    result = star(num1, num2)
+    print(f'#{test_case} {result}')

@@ -1,6 +1,5 @@
 # 단조 증가
 
-
 def isDanjo(num):
     tmp_list = []
     a = num

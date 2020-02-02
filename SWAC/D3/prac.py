@@ -1,19 +1,14 @@
-T = int(input())
+num_code = {
+    "0001101":0,
+    "0011001":1,
+    "0010011":2,
+    "0111101":3,
+    "0100011":4,
+    "0110001":5,
+    "0101111":6,
+    "0111011":7,
+    "0110111":8,
+    "0001011":9,
+}
 
-for test_case in range(1, T+1):
-    N = int(input()) #개수
-    numbers = list(map(int, input().split()))
-
-    max_num = 0
-    for idx, num in enumerate(numbers):
-        if idx == 0:
-            max_num, min_num = num, num
-        else:
-            if num > max_num:
-                max_num = num
-            elif num < min_num:
-                min_num = num
-    result = max_num - min_num
-
-    print(f'#{ test_case } { result }')
-        
+print('0001101' in num_code)

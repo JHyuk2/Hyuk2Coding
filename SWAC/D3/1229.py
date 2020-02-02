@@ -55,4 +55,4 @@ for test_case in range(10):
     for order_list in orders:
         secret_code = ins_and_del(secret_code, order_list)
     
-    print(f'#{ test_case +1 } { ' '.join(secret_code) }')
+    print(f'#{ test_case +1 } { ' '.join(secret_code[:10]) }')

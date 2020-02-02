@@ -1,33 +1,33 @@
-n = 72
-a = 84497
-b = '33788'
-
-tmp = list(b)
-print(tmp)
-j = 0
-j = tmp.index(max(tmp))
+tmp =[[True, True, True, True], [True, True, True, True], [True, True, True, True], [True, True, True, True]]
 
 
-max_result = sorted(tmp, reverse = True)
-temp_same =[]
-temp_differ = []
 
-for idx, num in enumerate(tmp):
-    if tmp[idx] == max_result[idx]:
-        temp_same.append((idx, num))
+# Q의 좌표를 받았을 때 가로,세로,대각을 False로 만드는 함수
+def turn(tmp, pos):
+    x = pos[0]
+    y = pos[1]
 
-    else:
-        temp_differ.append(num)
+    for i in range(len(tmp)):
+        if i == x:
+            tmp[i] = [False]*len(tmp)
+        else:
+            for j in range(len(tmp)):
+                if j == y or (j-i == y-x) or (i+j == x+y):
+                    tmp[i][j] = False
+        tmp[x][y] = 'Q'
+    print(tmp)
+    return tmp
 
-print(temp_same)
-print(temp_differ)
+tmp_list = turn(tmp, (0,0))
 
-# 이렇게하면 딱 됨.
-# temp_differ.insert(temp_same[0][0], temp_same[0][1])
 
-print(temp_differ)
-temp_differ.insert(4, '9')
-print(temp_differ)
-tt = []
-for t in tt:
-    print('hello')
+for i in range(len(tmp_list)):
+    for j in range(len(tmp_list)):
+        print(tmp_list[i][j], end = ' ')
+    print()
+
+print('-'*30)
+for i in range(len(tmp_list)):
+    for j in range(len(tmp_list)):
+        print(tmp2_list[i][j], end = ' ')
+    print()

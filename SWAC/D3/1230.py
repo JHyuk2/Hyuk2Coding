@@ -18,10 +18,10 @@ def split_IDA(text):
             cnt = idx
 
     for ls in tmp_list:
-        if ls[0] == ('I' or 'D'):
+        if ls[0] == 'I' or ls[0] == 'D':
             ls[1] = int(ls[1]) # 삽입할 위치
             ls[2] = int(ls[2]) # 삽입할 개수.
-        else:
+        else: # ls[0] == 'A'
             ls[1] = int(ls[1])
 
     return tmp_list
