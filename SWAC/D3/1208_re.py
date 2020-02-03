@@ -7,19 +7,21 @@ for test_case in range(10):
     cnt = 0
 	max_num, min_num = 0, 0
     
-    ## 맥스값 찾기.
-    for idx, num in enumerate(tmp_list):
-        if num > maxnum:
-            max_num = num
-            max_idx = idx
-        elif num < minnum:
-            min_num = num
-            min_idx = idx
+
             
     for i in range(dump):
-        cnt +=1
-        tmp_list, flag, result = flatten(tmp_list)
-        if flag == 0:
-            break
+        ## 맥스값 찾기.
+        for idx, num in enumerate(tmp_list):
+            if num > maxnum:
+                max_num = num
+                max_idx = idx
+            elif num < minnum:
+                min_num = num
+                min_idx = idx
+
+        tmp_list[min_idx] += 1
+        tmp_list[max_idx] -= 1
+        result = tmp_list[max_idx] - tmp_list[min_idx]
+    
     
     print(f'#{ test_case +1 } { result }')
