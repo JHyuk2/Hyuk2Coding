@@ -53,7 +53,11 @@ def queen(arr):
                     print(f'arr: {arr}')
                     arr_copy, arr = turn(arr, (i,j))
                     print(f'arr_copy: {arr_copy}')
-                    result += queen(arr_copy)
+                    aaaaaa = queen(arr_copy)
+                    if aaaaaa == 0:
+                        return
+                    else:
+                        result += aaaaaa
                     print(arr)
                     # print(f'new_arr: {new_arr},  result: {result}')
             else:
@@ -65,8 +69,6 @@ def queen(arr):
     print(f'result: {result}')
     return result
 
-
-            
 
 for test_case in range(1):
     # tmp_list = [[True]*4]*4 ## 왜인지 이렇게하면 안됨.
