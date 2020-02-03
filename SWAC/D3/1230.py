@@ -5,7 +5,7 @@
 def split_IDA(text):
     cnt = 0
     tmp_list = []
-
+ 
     for idx, t in enumerate(text):
         if idx == 0:
             continue        
