@@ -43,4 +43,4 @@ for test_case in range(1, T+1):
         result = (tmp-1)%7
     
     
-    print()
+    print(f'#{test_case} {result}')
