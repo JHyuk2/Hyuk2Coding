@@ -1,6 +1,7 @@
 ## 건물 조망 탐사
 
-T = 10
+T = 10   
+
 
 for test_case in range(1, T+1):
     a= int(input()) # 결국 이거 안써먹음
