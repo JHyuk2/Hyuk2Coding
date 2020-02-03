@@ -61,7 +61,7 @@ def swap(numbers, count):
                 t = numbers_copy[j+1:].index(max(numbers_copy)) # max의 인덱스를 모두 저장
                 find_max.append(t+j+1)
                 j += (t+1)
-            
+             
             max_count = max_count if max_count < count else count # max = 3
             find_max.reverse()
             swap_place = 0
