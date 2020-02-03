@@ -148,7 +148,7 @@ def star(num1, num2):
 
     real_point = tuple(map(sum, zip(p1,p2)))
     return find_num(real_point)
-
+ 
 
 T = int(input())
 
