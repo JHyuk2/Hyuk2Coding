@@ -60,7 +60,7 @@ def count_deadlock(new_tmp):
         result += cnt_12
 
     return result
-
+ 
 ## 문제에서 요구하는 바는, 몇 개가 남아있냐가 아니라, 몇 개의 교착상태가 존재하느냐.
 for test_case in range(1):
     N = int(input())
