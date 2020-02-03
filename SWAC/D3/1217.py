@@ -1,4 +1,4 @@
-
+# 거듭제곱
 def num_pow(n, p):
     if p == 1:
         return n
