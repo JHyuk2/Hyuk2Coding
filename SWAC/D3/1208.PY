@@ -22,7 +22,7 @@ def flatten(input_list): # 평탄화 작업 한번.
     
     result = max(input_list)-min(input_list)
     return input_list, flag, result
-    
+     
 for test_case in range(10):
     dump = int(input()) # 평탄화 가능회수 입력받음
     tmp_list = list(map(int, input().split())) 
