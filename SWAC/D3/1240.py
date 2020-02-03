@@ -10,7 +10,7 @@ num_code = {
     "0110111":8,
     "0001011":9,
 }
-
+ 
 T = int(input())
 
 for test_case in range(1,T+1):
