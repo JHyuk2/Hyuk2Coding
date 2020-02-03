@@ -1,4 +1,3 @@
-
 # 가로합
 def horizontal_list(tmp_list):
     temp = []
