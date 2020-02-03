@@ -1,5 +1,5 @@
 ## 공통 제거
-
+ 
 def remove_same(text):
     for idx, t in enumerate(text):
         if idx == len(text) - 1:
