@@ -12,7 +12,7 @@ for test_case in range(1, 11):
     for r in real:
         r[0] = int(r[0])
         r[1] = int(r[1])
-
+ 
     secret_code = secret_code.split()
 
     # 3) 
