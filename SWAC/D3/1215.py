@@ -1,4 +1,5 @@
 # 회문 찾기
+
 def check_palindrome(text):
     middle = len(text) // 2
     
