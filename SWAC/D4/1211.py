@@ -10,38 +10,33 @@ def go(ladder, pos):
     y = pos[0]
     length = len(ladder)
     cnt = 1
-    next_x, next_y = 0, 0
 
-    while next_y != length-1: # 끝까지 가지 않았다면 반복
-        # 변수 선언
-
+    while y < length: # 끝까지 가지 않았다면 반복
         for i in range(2):
-            next_x = x + dx[i]
-            nexy_y = y + dy[i]
-
+            tmp_x = x + dx[i]
+            tmp_y = y + dy[i]
             # 좌우에 길이 있다을 때
-            if 0 <= next_x < length and 0 <= nexy_y < length and ladder[next_x][next_y] == 1 :
+            if 0 <= tmp_x < length and 0 <= tmp_y < length and ladder[tmp_y][tmp_x] == 1:
+                print('방향전환 ^^')
                 # 벽을 만나거나 0을 만나지 않는다면 계속 가라.
-                while next_x != length-1 and next_x != 0 and ladder[next_x][next_y] is not 0:
-                    next_x += dx[i]
-                    next_y += dy[i]
+                while 0 <= x < length and 0 <= y < length and ladder[y][x] ==1:
+                    x += dx[i]
+                    y += dy[i]
                     cnt +=1
-                    print(next_x, next_y)
-                    
-
+                    print(y, x, cnt)
                 # 만약 다음 자리가 벽이나 0이 있다면 dx[i], dy[i]만큼 돌아간 후, 아래로 이동해라
-                print('here')
-                next_x += dx[2] - dx[i]
-                next_y += dy[2] - dy[i]
-                print('-'*30)
-                print(next_x, next_y)
-                cnt +=1
+                print('▲▲▲▲▲▲▲▲▲▲ ------  deleted')
+                x += dx[2] - dx[i]
+                y += dy[2] - dy[i]
+                print(y, x, cnt)
 
-            # 좌우에 길이 없다면 아래로 가라
-            else:
-                next_x += dx[2]
-                next_y += dy[2]
-                cnt += 1
+        # 좌우에 길이 없다면 아래로 가라
+        else:
+            x += dx[2]
+            y += dy[2]
+            cnt += 1
+            print(y, x, cnt)
+
     return cnt
 
 
@@ -50,13 +45,17 @@ T = int(input())
 for tc in range(1, T+1):
     ladder = [list(map(int, input().split())) for _ in range(100)]                
     start_pos = [idx for idx, num in enumerate(ladder[0]) if num == 1] # 시작하는 x좌표의 위치
-    m_cnt = 0
-
+    m_cnt = 10000
+    
+    result_list = []
     for s in start_pos:
-        pos = [0, s]
-        cnt = go(ladder, pos)
-        if cnt > m_cnt:
-            m_cnt = cnt
-            result = s
+        if s == 99:
+            pos = [0, s]
+            cnt = go(ladder, pos)
+            result_list.append((s, cnt))
 
-    print(result)
+            if cnt < m_cnt:
+                m_cnt = cnt
+                result = s
+    print(result_list)
+    # print(result, result_list)
