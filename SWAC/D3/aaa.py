@@ -62,4 +62,3 @@ for tc in range(1, T+1):
                 cnt_b += 1
             elif board[i][j] == 1:
                 cnt_w += 1
-                
