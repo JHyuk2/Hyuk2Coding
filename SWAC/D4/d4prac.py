@@ -1,58 +1,19 @@
-
-tmp = [[i*5 + j for j in range(1, 6)] for i in range(5)]
-'''
-# 위에서부터 검사
-print('---- up -----')
-for i in range(len(tmp)):
-    for j in range(len(tmp)):
-        print(f'{tmp[j][i]:2}', end = ' ')
-    print()
-
-# 오른쪽에서부터 검사
-print('---- right -----')
-for i in range(len(tmp)):
-    for j in range(len(tmp)-1, -1, -1):
-        print(f'{tmp[i][j]:2}', end = ' ')
-    print()
-
-# 아래서부터 검사
-print('---- down -----')
-for i in range(len(tmp)-1, -1, -1):
-    for j in range(len(tmp)):
-        print(f'{tmp[i][j]:2}', end = ' ')
-    print()
-
-# 왼쪽부터 검사
-print('---- left -----')
-for i in range(len(tmp)):
-    for j in range(len(tmp)):
-        print(f'{tmp[i][j]:2}', end = ' ')
-    print()
-'''
-
-tmp = [
-    [4, 8, 2, 4, 0],
-    [4, 4, 2, 0, 8],
-    [8, 0, 2, 4, 4],
-    [2, 2, 2, 2, 8],
-    [0, 2, 2, 0, 0],
-]
-
 #     좌 상 하 우 => 반대 방향으로 찾아주면 됨.
-dx = [0, -1, 1, 0]
-dy = [-1, 0, 0, 1]
-dir_dict = {
-    'right':0,
-    'down':1,
-    'up':2,
-    'left':3,
-}
 
 def search(board, pos, direction):
     # pos  현재 위치
     now_x = pos[0]
     now_y = pos[1]
     
+    dx = [0, -1, 1, 0]
+    dy = [-1, 0, 0, 1]
+    dir_dict = {
+        'right':0,
+        'down':1,
+        'up':2,
+        'left':3,
+    }
+
     # 여기서 direction 0은 왼쪽을 의미
     tmp_x = now_x + dx[dir_dict[direction]]
     tmp_y = now_y + dy[dir_dict[direction]]
@@ -108,67 +69,46 @@ def search(board, pos, direction):
                     break
     return board
 
-def result_each_dir(board, direction):
-    # # 위에서부터 검사 
-    if direction == 'up':
-        for i in range(len(tmp)):
-            for j in range(len(tmp)):
-                search(tmp, [i,j], direction)
-                
-    # # 오른쪽에서부터 검사  
-    elif direction == 'right':
-        for i in range(len(tmp)):
-            for j in range(len(tmp)-1, -1, -1):
-                search(tmp, [i,j], direction)
+
+T = int(input())
+
+for tc in range(1, T+1):
+    n, direction = input().split()
+    n = int(n)
+    board = [list(map(int, input().split())) for _ in range(n)]
     
-    elif direction == 'down':
-        for i in range(len(tmp)-1, -1, -1):
-            for j in range(len(tmp)):
-                search(tmp, [i,j], direction)
+    if direction == 'up':
+        for i in range(len(board)):
+            for j in range(len(board)):
+                search(board, [i,j], direction)
+        # # 오른쪽에서부터 검사  
+    if direction == 'right':
+        for i in range(len(board)):
+            for j in range(len(board)-1, -1, -1):
+                search(board, [i,j], direction)
+    
+    if direction == 'down':
+        for i in range(len(board)-1, -1, -1):
+            for j in range(len(board)):
+                search(board, [i,j], direction)
 
-    elif direction == 'left':
-        for i in range(len(tmp)):
-            for j in range(len(tmp)):
-                search(tmp, [i, j], 'left')
+    if direction == 'left':
+        for i in range(len(board)):
+            for j in range(len(board)):
+                search(board, [i, j], 'left')
 
+    print('#{}'.format(tc))
+    for i in range(len(board)):
+        for j in range(len(board)):
+            print(board[i][j], end = ' ')
+        print()
 
-
+"""
 # search(tmp, [3,3], 'right')
 # for i in range(len(tmp)):
 #     print(tmp[i])
 # print('----'*30)
 # search(tmp, [3,2], 'right')
-
-# for i in range(len(tmp)):
-#     print(tmp[i])
-"""
-# 이제 진행순서에 맞게 한번 해볼까..?
-
-# # 위에서부터 검사 ---- ok
-# print('---- up -----')
-# for i in range(len(tmp)):
-#     for j in range(len(tmp)):
-#         search(tmp, [i,j], 'up')
-
-
-# # 오른쪽에서부터 검사 ---- ok
-# print('---- right -----')
-# for i in range(len(tmp)):
-#     for j in range(len(tmp)-1, -1, -1):
-#         search(tmp, [i,j], 'right')
-
-# 아래서부터 검사  ---- ok
-# print('---- down -----')
-# for i in range(len(tmp)-1, -1, -1):
-#     for j in range(len(tmp)):
-#         search(tmp, [i,j], 'down')
-    
-
-# 왼쪽부터 검사 ---- ok
-# print('---- left -----')
-# for i in range(len(tmp)):
-#     for j in range(len(tmp)):
-#         search(tmp, [i, j], 'left')
 
 # for i in range(len(tmp)):
 #     print(tmp[i])
