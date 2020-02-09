@@ -1,5 +1,5 @@
-tmp = [i for i in range(10)]
+a = [[1, 2],[2,3]]
 
-tmp.remove(5)
-print(tmp)
-tmp.remove(5)
+tmp = [[3]]
+
+print(tmp + [*a])
