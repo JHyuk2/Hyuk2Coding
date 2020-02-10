@@ -10,7 +10,6 @@ switch = list(map(int, input().split())) # 상태
 s = int(input()) # 학생 수
 d = [list(map(int, input().split())) for _ in range(s)] # [sex, num] 순서로 s 개만큼 받음
 
-
 # 0 < -- > 1
 def state_change(state):
     if state == 0:

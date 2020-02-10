@@ -1,5 +1,6 @@
-a = [[1, 2],[2,3]]
+a = 123
 
-tmp = [[3]]
+tmp = [55, 444, 123, 222, 534]
 
-print(tmp + [*a])
+tmp_list = list(map(lambda x: x-a, tmp[1:4]))
+print(tmp_list)

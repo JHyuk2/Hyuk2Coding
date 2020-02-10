@@ -13,7 +13,7 @@ for test_case in range(1, T+1):
         now_list = new_tmp[i-2:i+3]
         now = now_list[2] 
         
-        first =sorted(now_list, reverse=True)[0] # 최고층
+        first = sorted(now_list, reverse=True)[0] # 최고층
         second = sorted(now_list, reverse=True)[1] # 그 다음높이
 
         if now == first: 
