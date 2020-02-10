@@ -34,9 +34,10 @@ if cut != 0:
             else:
                 real_ver.append(ver[i]-ver[i-1])
         real_ver.append(height-ver[-1])
+
     else:
-        real_hor = [height]
-        
+        real_ver = [height]
+
     ## 결과출력
     max_paper = 0
     for i in range(len(real_ver)):
