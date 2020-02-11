@@ -16,7 +16,6 @@ def lookup(below_num, mapping_dice):
     remains = [i for i in range(1, 7) if i not in (up + [below_num])]
     return up[0], max(remains)
 
-
 # dice
 N = int(input())
 dices = [list(map(int, input().split())) for _ in range(N)]
