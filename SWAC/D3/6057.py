@@ -16,7 +16,7 @@ def isTriangle(line_combination):
 import copy
 
 # 들어온 간선 3개를 뽑는 함수 - 모든 경우의수
-def tri_combination(arr, N, current = []):
+def tri_combination(arr, N):
     # 루프시 마지막값.
     loop_length = len(arr) - N + 1
     # Base_case
@@ -31,7 +31,8 @@ def tri_combination(arr, N, current = []):
         new_arr = arr_copy[idx:]
         res += tri_combination(new_arr, N-1)
         current += [tmp]+res
-    result.append(current)
+    
+
     return result, current
 
 arr = [1,2,3,4]
