@@ -35,7 +35,7 @@ for i in range(1, n+1):
     
 pos = [y+1, h-x]
 print(pos[0], pos[1])
-    # print('------------')
-    # for j in range(h):
-    #     print(stage[j])
+print('------------')
+for j in range(h):
+    print(stage[j])
 
