@@ -83,4 +83,3 @@ for test_case in range(1, T+1):
         result += queen(new_tmp, depth+1)
   
     print('#{} {}'.format(test_case, result))
-

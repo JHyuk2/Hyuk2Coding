@@ -21,7 +21,7 @@ for idx, (d, l) in enumerate(elem):
         max_w_idx = idx    
     elif d in (3, 4) and l > max_h:
         max_h = l
-        max_h_idx = idx    
+        max_h_idx = idx 
 tot_area = max_w * max_h
 find_idx = [-1, 1]
 
