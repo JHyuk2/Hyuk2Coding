@@ -3,7 +3,6 @@
 def solution(data):
     # 1) 모든 레이저를 L로 바꿈
     data = data.replace('()', 'L',data.count('()'))
-    print(data)
     stack = []
     tmp_stack = []
     res = 0

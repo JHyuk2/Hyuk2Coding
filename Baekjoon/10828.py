@@ -30,8 +30,6 @@ class Stack:
         else: 
             return -1
             
-
-
 n = int(input())
 orders = [list(input().split()) for _ in range(n)]
 stack1 = Stack()
