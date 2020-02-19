@@ -19,3 +19,4 @@ for test_case in range(1, 11):
         num = remove_same(num)
 
     print(f'#{ test_case } { num }')
+    
