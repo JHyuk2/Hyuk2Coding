@@ -21,6 +21,7 @@ for test_case in range(1,T+1):
         tmp = input()
         secret_code.append(tmp)
 
+
     result = []
     for h in range(height):
         w = 0
