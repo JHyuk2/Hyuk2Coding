@@ -20,3 +20,4 @@ for test_case in range(1, T+1):
             result += (first-second)
         
     print(f'#{ test_case } { result }')
+    
