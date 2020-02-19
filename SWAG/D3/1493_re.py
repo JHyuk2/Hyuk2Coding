@@ -1,6 +1,7 @@
 def sigma(n):
     return 0 if n == 0 else 1 if n == 1 else n + sigma(n-1)
 
+
 def find_num(point):
     x = point[0]
     y = point[1]
