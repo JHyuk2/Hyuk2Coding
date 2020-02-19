@@ -12,4 +12,4 @@ for test_case in range(1, T+1):
 
         
     tmp = [str(i) for i in tmp]
-    print(f'#{ test_case } { " ".join(tmp) }')
+    print(f'#{ test_case } { " ".join(tmp) }') 
