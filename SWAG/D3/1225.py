@@ -13,7 +13,7 @@ def cycle(tmp_list):
             else:
                 tmp.append(tmp_list[0] -step)
                 tmp_list = tmp
- 
+
 for test_case in range(1, 11):
     N = int(input()) # 안씀
     tmp_list = list(map(int, input().split()))
