@@ -6,7 +6,7 @@ for test_case in range(1, T+1):
 
     width = (len(char) -1)*4 + 5
     result = []
-
+ 
     for i in range(5):
         tmp = ''
         for j in range(width):
