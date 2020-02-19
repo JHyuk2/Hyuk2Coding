@@ -12,3 +12,4 @@ for test_case in range(10):
 
     result = num_pow(n, power)
     print(f'#{ t } { result }')
+    
