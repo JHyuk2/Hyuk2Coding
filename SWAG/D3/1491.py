@@ -1,21 +1,17 @@
+import math
 
-tc = int(input())
-
-for test_case in range(1, tc+1):
+T = int(input())
+for tc in range(1, T+1):
     N, A, B = map(int, input().split())
 
-    start_num = int(N**0.5)
-    tmp, end_num = start_num, start_num
+    # 최대로 가능한 마지막 순서
+    max_a = int(math.sqrt(N))
+    res = 999999999
 
-    while tmp * end_num <= (start_num)**2:
-        end_num += 1
-    
-    result = []
-    for R in range(start_num, start_num+2):
-        for C in range(R,end_num):
-            if R == (start_num +1) and C == (R+1):
-                break
-            else:
-                tmp = A * abs(R-C) + B*abs(N - R*C)
-                result.append(tmp)
-    print('#{} {}'.format(test_case, result[0]))
+    for i in range(1, max_a+1):
+        max_b = N//i
+        for j in range(i, max_b+1):
+            tmp = A * abs(i-j) + B*(N-i*j)
+            if tmp < res:
+                res = tmp
+    print(f'{tc} {res}')
