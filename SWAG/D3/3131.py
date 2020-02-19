@@ -13,7 +13,6 @@ prime_num = [2,3,5,7]
 #     n = 4
 #     if num == 1:
 #         return False
-
 #     # 절반이상 단축 가능
 #     for p in prime_num:
 #         if num % p is 0:
