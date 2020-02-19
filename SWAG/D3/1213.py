@@ -7,3 +7,4 @@ for test_case in range(10):
 
     result = text.count(find_word)
     print(f'#{ t } { result }')
+    
