@@ -12,6 +12,7 @@ def check_palindrome(text):
         flag = 1
     return flag
 
+
 def find_palindrome(tmp_list, k):
     cnt = 0
 
