@@ -20,6 +20,7 @@ for tc in range(1, T+1):
     # 종류와 숫자로 다시 나눠주기
     pattern_cards = [(i[0],i[1:]) for i in cards]
 
+
     # trumps 딕셔너리에 추가하기
     for pc in pattern_cards:
         pattern = pc[0]
