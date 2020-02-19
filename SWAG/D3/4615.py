@@ -6,7 +6,7 @@
 print()
  
 size = 4
-
+ 
 # 초기 보드 생성
 def init_board(size):
     board = [[0 for _ in range(size)] for _ in range(size)]
