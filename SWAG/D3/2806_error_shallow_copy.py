@@ -11,6 +11,7 @@ def check_True(arr):
     else:
         return False
 
+
 # Q의 좌표를 받았을 때 가로,세로,대각을 False로 만드는 함수
 def turn(tmp, pos):
     tmp_copy = list(tmp)

@@ -12,6 +12,7 @@ def check_True(arr):
     else:
         return False
 
+
 # 모든 줄에 Q가 있을 때
 def isAll_Q(arr):
     N = len(arr)
