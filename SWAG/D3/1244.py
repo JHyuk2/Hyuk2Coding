@@ -14,6 +14,7 @@ count == 3:
 
 '''
 
+
 def swap(numbers, count):
     # 1) 내림차순으로 정렬 => 가장 큰 수
     max_result = sorted(numbers, reverse = True)
