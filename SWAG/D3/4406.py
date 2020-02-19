@@ -15,3 +15,4 @@ for test_case in range(1, T+1):
             text += c
 
     print(f'#{ test_case } { text }')
+    
