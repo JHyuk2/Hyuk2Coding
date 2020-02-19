@@ -7,7 +7,6 @@ face = {
 
 barrier = ['*','#','-']
 
-
 def shoot(field, tank):
     global face 
     global barrier
