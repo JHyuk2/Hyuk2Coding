@@ -15,7 +15,7 @@ for test_case in range(1, 11):
  
     secret_code = secret_code.split()
 
-    # 3) 
+    # 3)
 
     for r in real:
         insert_num = r[0]

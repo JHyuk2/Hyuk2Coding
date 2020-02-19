@@ -26,6 +26,7 @@ def split_IDA(text):
 
     return tmp_list
 
+
 # I, D 에 따라 입력 / 삭제
 def ins_del_add(secret_code, order_list): # 둘 다 리스트임
     if order_list[0] == 'I':
