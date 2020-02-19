@@ -4,7 +4,7 @@ def horizontal_list(tmp_list):
     for i in range(len(tmp_list)):
         temp.append(sum(tmp_list[i]))
     return temp
-
+    
 # 세로합
 def vertical_list(tmp_list):
     rotate_tmp = list(zip(*tmp_list))

@@ -1,6 +1,6 @@
 for test_case in range(1, 11):
     tc = int(input())
-    
+
     arr = []
     for _ in range(100):
         arr.append(list(map(int, input().split())))
