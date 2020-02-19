@@ -1,6 +1,7 @@
 # 테스트케이스 10
 # 각 줄의 입력은 입력받는 수 & 값
 
+
 def flatten(input_list): # 평탄화 작업 한번.
     high = max(input_list)
     low = min(input_list)

@@ -4,6 +4,7 @@
 # 덤프 횟수만큼 반복하는데,
 # 맥스값, 민값을 구해서 각 자리에 +1 -1 해주면 됨.
 
+
 for tc in range(10):
     n = int(input())
     d = list(map(int, input().split()))
