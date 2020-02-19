@@ -18,7 +18,7 @@ for test_case in range(1, T+1):
         chars.append(tmp)
     
     # 길이를 맞춰줌
-    for char in chars:
+    for char in chars:  
         if len(char) < max_len:
             for _ in range(max_len - len(char)):
                 char.append('')
