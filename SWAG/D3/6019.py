@@ -5,3 +5,4 @@ for tc in range(1, T+1):
 
     distance = (D / (A+B) * F)
     print('#{} {:06f}'.format(tc, distance))
+    

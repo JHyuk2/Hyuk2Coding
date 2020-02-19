@@ -14,7 +14,7 @@ def isTriangle(line_combination):
     else:
         return False
 import copy
-
+ 
 # 들어온 간선 3개를 뽑는 함수 - 모든 경우의수
 def tri_combination(arr, N):
     # 루프시 마지막값.

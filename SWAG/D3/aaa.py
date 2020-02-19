@@ -17,7 +17,7 @@ def flip(board, point, color):
     
     dx = [-1, -1, -1, 0, 0, 1, 1, 1]
     dy = [-1, 0, 1, -1, 1, -1, 0, 1]
-    
+
     for k in range(8):
         now_x, now_y = x+dx[k], y+dy[k]
         if 0<= now_x < len(board) and 0 <= now_y < len(board) and board[now_x][now_y] == (color%2)+1:

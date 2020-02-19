@@ -5,7 +5,7 @@ T = int(input())
 for test_case in range(1, T+1):
     N = int(input())
     result = []
-    
+     
     for i in range(N):
     	p1, x1 = map(float, input().split())
     	result.append((p1, x1))

@@ -15,4 +15,4 @@ for tc in range(1, T+1):
     for p in range(P):
         result.append(str(bus[int(input())-1]))
 
-    print("#{} {}".format(tc, ' '.join(result)))
+    print("#{} {}".format(tc, ' '.join(result))) 
