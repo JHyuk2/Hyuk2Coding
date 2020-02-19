@@ -9,6 +9,7 @@
 2 1 2 0 0 0 0
 0 0 0 2 0 0 0
 '''
+
 # 한 줄씩
 def one_line_magnetic(tmp_line):
     N = len(tmp_line)
