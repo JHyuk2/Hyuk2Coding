@@ -18,6 +18,7 @@ def find_min(number_list, length):
         if int(number_list[i:i+length]) >= start_num:
             compare.append(int(number_list[i:i+length]))
     
+    
     # 중복제거하고 정렬
     compare = list(sorted(list(set(compare))))
     # 모든 숫자가 있으면 다음으로 패스
