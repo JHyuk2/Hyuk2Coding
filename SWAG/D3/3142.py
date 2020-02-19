@@ -7,3 +7,4 @@ for test_case in range(1, T+1):
     uni = M - twin
 
     print(f'#{test_case} { uni} {twin}')
+    
