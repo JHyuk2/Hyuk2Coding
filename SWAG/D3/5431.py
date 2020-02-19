@@ -8,4 +8,4 @@ for test_case in range(1, T+1):
     result = [str(i) for i in tot if i not in S]
 
     real = ' '.join(result)
-    print(f'#{ test_case } { real }')
+    print(f'#{ test_case } { real }')  
