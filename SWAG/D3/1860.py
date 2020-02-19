@@ -1,6 +1,7 @@
 # N, M, K (오는 손님, M초의 시간으로 K개의 붕어빵을 만든다.)
 # 손님이 오는 시간 리스트
 
+
 T = int(input())
 
 for test_case in range(1, T+1):
