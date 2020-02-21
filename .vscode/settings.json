@@ -1,3 +1,14 @@
 {
-    "python.pythonPath": "C:\\Users\\multicampus\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+    "python.pythonPath": "C:\\Users\\dm705\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "foreground": "#04B486",
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    }
 }
