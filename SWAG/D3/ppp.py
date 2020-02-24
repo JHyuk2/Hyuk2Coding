@@ -1,6 +1,6 @@
-a = 123
+tmp = [1, 3, 2, 5, 4, 7]
 
-tmp = [55, 444, 123, 222, 534]
+tmp_list = tmp[2:]
 
-tmp_list = list(map(lambda x: x-a, tmp[1:4]))
-print(tmp_list)
+for idx, d in enumerate(tmp_list):
+    print(idx, d)
