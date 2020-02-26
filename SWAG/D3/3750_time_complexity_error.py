@@ -14,7 +14,6 @@ def digit_sum(n):
         remain, m = divmod(n, 10)
         res += m
         n = remain
-
     return res
 
 
