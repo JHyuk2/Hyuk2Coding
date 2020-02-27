@@ -5,7 +5,8 @@
 
 # # 개수에 맞는 콤비네이션 생성
 res = []
-def combinations(tmp_list, elem, current):
+def combinations(width, elem, current):
+    tmp_list = [i for i in range(width)]
     if not elem:        
         res.append(current)
         return
@@ -15,8 +16,16 @@ def combinations(tmp_list, elem, current):
         cur_copy.append(tmp_list[i])
         combinations(tmp_list[i+1:], elem-1, cur_copy)
 
+def shoot(enemy, r, D):
+    depth = len(enemy)
 
-tmp_list = [1,2,3,4,5]
+    for d in range(1, D+1):
+        start_x = depth
+        start_y = r
+        for i in range(2*d -1):
+            if i > d-1:
+                nx = s
+height, width, distance = 5, 5, 5
 elem = 3
 current = []
 
