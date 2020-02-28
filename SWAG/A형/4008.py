@@ -4,8 +4,6 @@
 # # 1) 계산은 무조건 왼쪽에서 오른쪽으로.
 # # 2) 순열과 조합을 사용한 완전탐색 방법을 사용
 
-from collections import deque
-
 def combinations(oper_dict, current_list):
     # 1) cnt == True인 애들만 먼저 고르기.
     choices = [key for key, val in oper_dict.items() if val]
