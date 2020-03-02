@@ -11,7 +11,7 @@ def node(queue, distance):
                 if node(graph_dict[q], distance+1):
                     distances_list.append(node(graph_dict[q], distance+1))
                 visited[q] = 0
-    
+
 T = int(input())
 for tc in range(1, T+1):
     V, E = map(int, input().split()) # V = 노드, E = 간선
