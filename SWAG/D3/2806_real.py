@@ -11,13 +11,12 @@ def check_True(arr):
         return True
     else:
         return False
-
-
+        
 # 모든 줄에 Q가 있을 때
 def isAll_Q(arr):
     N = len(arr)
     result = []
-
+    
     for i in arr:
         tmp = True if 'Q' in i else False
         result.append(tmp)

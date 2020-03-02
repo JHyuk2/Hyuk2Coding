@@ -4,16 +4,12 @@
 # # 1) 계산은 무조건 왼쪽에서 오른쪽으로.
 # # 2) 순열과 조합을 사용한 완전탐색 방법을 사용
 
-def combinations(oper_dict, current_list):
-    # 1) cnt == True인 애들만 먼저 고르기.
-    # choices 이 부분 줄이고.
-    choices = [key for key, val in oper_dict.items() if val]
-
+def combinations(oper_dict):
     # 모든 연산자 소진시
     if not choices:
         res.append(current_list)
         return
-    
+            
     # 연산자가 있을 경우 돌아가면서 순회
     for c in choices:
         cur_copy = current_list[:]
@@ -21,7 +17,6 @@ def combinations(oper_dict, current_list):
         oper_dict[c] -= 1
         combinations(oper_dict, cur_copy)
         oper_dict[c] += 1 
-
 
 def calc(n1, n2, oper):
     if oper == '+':
@@ -45,9 +40,6 @@ for tc in range(1, T+1):
 
     # # 1) 각 연산자와 카운트에 맞는 oper_dict 생성
     opers = ['+', '-', '*', '/']
-    oper_dict = {}
-    for i in zip(opers, oper_count):
-        oper_dict[i[0]] = i[1]
 
     # # 2) 중복수열 모든 경우의 수 구하기
     res = []
