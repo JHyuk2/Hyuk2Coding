@@ -1,57 +1,62 @@
 # 정사각형 방
-# BFS 사용하는 것 같음.
-
-# 1) 랜덤한 출발점을 지정
-'''
-3   --- size
-<room>
-9 3 4 
-6 1 5
-7 8 2
-'''
-# # A(ij)는 서로 모두 다른 정수 => room_id --> unique_value
-
-size = int(input())
-room = [list(map(int, input().split())) for _ in range(size)]
 
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
-
-# 1) 순회한 곳은 하나씩 찍으면서간다.
-visited = []
-
-# 2) BFS 시작
-def bfs(start_x, start_y, length = 1, tmp = []):
-    global size
-    flag = 0
-    room_num = room[start_x][start_y]
-    visited.append(room_num)
-
-    if length == 1:
-        tmp = [room_num, length]
+tmp = []
+cnt = 0
+def go(start_x, start_y, flag = 1):
+    global cnt
+    global min_tmp
+    global length
+    global tmp
     
+    cnt += 1
+    length += 1
+    room_num = room[start_x][start_y]
+    visited[start_x][start_y] = 1
+    
+    # 첫 번째 room 검사
+    if flag==1:
+        min_tmp = room_num
+        tmp = [room_num]
+
+    # 재귀함수 진행중 (- room이 2개 이상)
+    else:
+        if room_num < min_tmp:
+            min_tmp = room_num
+        tmp.append(room_num)
+
     for i in range(4):
         nx = start_x + dx[i]
         ny = start_y + dy[i]
+        if 0 <= nx < size and 0 <= ny < size and abs(room[nx][ny] - room_num) == 1 and not visited[nx][ny]:
+            # # 방이 2번째 이상인 경우, flag = 0으로 바꿔서 진행
+            go(nx, ny, flag = 0)
+  
+T = int(input())
 
-        if 0 <= nx < size and 0 <= ny < size and room[nx][ny] == (room_num +1):
-            if room[nx][ny] in visited:
-                return
+for tc in range(1, T+1):
+    size = int(input())
+    room = [list(map(int, input().split())) for _ in range(size)]
+    visited = [[0]*(size) for _ in range(size)] # n*n
+    min_tmp = 0
+    res_min = 99999
+    res_len = 0
+
+    for i in range(size):
+        for j in range(size):
+            length = 0
+            if visited[i][j]:
+                continue
+            min_tmp = room[i][j]
+            go(i, j)
             
-            flag = 1
-            return bfs(nx, ny, length+1, tmp)
+            if length > res_len:
+                res_min = min_tmp
+                res_len = length
+            elif length == res_len:
+                res_min = res_min if res_min < min_tmp else min_tmp
 
-    if not flag:
-        tmp[1] = length
-        return tmp
-    
-res = []
-for i in range(3):
-    for j in range(3):
-        start_x = i
-        start_y = j
-        if room[start_x][start_y] in visited:
-            continue
-        else:
-            res.append(bfs(start_x, start_y))
-print(res)
+            print(min_tmp, tmp)
+
+    print(f'#{tc} {res_min} {res_len}')
