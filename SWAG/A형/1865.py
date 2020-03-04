@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open('input.txt')
+
 def work(depth, v, p=1):
     global max_res
 
