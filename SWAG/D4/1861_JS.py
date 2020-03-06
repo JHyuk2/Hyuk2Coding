@@ -1,6 +1,7 @@
 # 정사각형 방
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
+
 def get_result(x, y):
     value = [0] * 4
     for i in range(4):
@@ -13,7 +14,7 @@ def get_result(x, y):
             i = value.index(room[x][y] + 1)
             distance[x][y] = get_result(x + dx[i], y + dy[i]) + 1
     return distance[x][y]
-    
+
 T = int(input())
 for tc in range(1, T + 1):
     N = int(input())
