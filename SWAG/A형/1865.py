@@ -3,7 +3,6 @@ sys.stdin = open('input.txt')
 
 def work(depth, v, p=1):
     global max_res
-
     if p <= max_res:
         return
     if depth == len(v):
