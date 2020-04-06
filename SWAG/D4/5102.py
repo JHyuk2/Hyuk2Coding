@@ -15,15 +15,13 @@
 def bfs_paths(graph, start, goal):
     # 출발점, 현재까지 진행
     queue = [(start, [start])]
-    result = []
+    result = 0
 
     while queue:
         # bfs 진행
         n, path = queue.pop(0)
-
         if n == goal:
-            result.append(len(path) -1) 
-            print(path)
+            return len(path) -1
         else:
             for m in graph[n]:
                 if m not in path:
@@ -46,9 +44,9 @@ for tc in range(1, T+1):
         v1, v2 = map(int, input().split())
         graph[v1].append(v2)
         graph[v2].append(v1)
-
     # 3) start, goal
     start, goal = map(int, input().split())
 
-    result = min(bfs_paths(graph, start, goal))
+    result = bfs_paths(graph, start, goal)
+    
     print(f'#{tc} {result}')
