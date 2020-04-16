@@ -14,7 +14,7 @@ class LinkedList:
     # node append
     def append(self, data):
         new_node = Node(data)
-        if self.num_of_data:
+        if head:
             self.tail.next = new_node
             new_node.prev = self.tail
             self.tail = new_node
@@ -27,32 +27,49 @@ class LinkedList:
         return self.num_of_data
     
     # node insert
-    def insert(self, idx, data):
-        cur = self.head
-        prevn = self.head
+    def insert(self, idx, node):
+        curn = self.head
+        curn.data = data
+        prevn = None
         nextn = None
 
         if not self.head :
-            self.head = cur
-            self.tail = cur     
+            self.head = curn
+            self.tail = curn
         else:
-            nextv = cur
-            while index:
-                prevn = cur
-                nexvn = nextv.next
-                index -=1
-            prev.next = cur
-            cur.next = nextv
+            if idx >= self.num_of_data:
+                self.tail.next = curn
+                self.tail = curn
+            else:
+                nextn = self.head
+                while idx:
+                    prevn = nextn
+                    nextn = nextn.next
+                    idx -=1
+                prevn.next = curn
+                curn.next = nextn
         self.num_of_data += 1
     
     def get_indexnum(self, idx):
-        
+        cur = 0
+        curn = self.head
+        while idx:
+            curn = curn.next
+            idx -= 1
+        return curn.data
     
+    def head(self):
+        return self.head
+    def tail(self):
+        return self.tail
 
 LL = LinkedList()
 LL.append(1)
+LL.append(3)
 LL.insert(1, 2)
-for i in range(LL.size()):
-    print(LL.)
+print(LL.size())
+print(LL.head())
+# for i in range(LL.size()):
+#     print(LL.get_indexnum(i))
 
 # print(LL.head, LL.tail)
