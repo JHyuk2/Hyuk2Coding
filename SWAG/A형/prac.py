@@ -1,15 +1,7 @@
-from copy import deepcopy
+num_list = list(map(int, input().split(', ')))
 
-arr = [1 for _ in range(5)]
-arr_copy = deepcopy(arr)
+def print_square(n1, n2):
+    print(f'{n1} => {n1**2}')
+    print(f'{n2} => {n2**2}')
 
-# 어떻게 해도 원본이 바뀐다.
-
-def list_trans(tmp_list):
-    tmp_list[1] = 0
-    return tmp_list
-
-arr2 = list_trans(arr_copy)
-print(arr)
-print(arr2)
-print(arr_copy)
+print_square(num_list[0], num_list[1])
