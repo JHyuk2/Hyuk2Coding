@@ -4,7 +4,7 @@
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
-                "scope": "comment",
+                "scope": ["comment", "string.quoted.docstring.multi.python"],
                 "settings": {
                     "foreground": "#04B486",
                     "fontStyle": "italic"
