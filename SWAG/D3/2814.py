@@ -23,7 +23,3 @@ for tc in range(1, T+1):
         tmp_e = list(reversed(e))
         adj_list[e[0]].append(e[1])
         adj_list[tmp_e[0]].append(tmp_e[1])
-    
-    
-    
-    
