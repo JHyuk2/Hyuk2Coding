@@ -11,5 +11,5 @@
 # temp = [10, 9, 3, 1]
 # print(' '.join(map(str, temp)))
 
-print(1)
+print(max.__doc__)
 
