@@ -28,9 +28,12 @@ for _ in range(N):
 
 time = 0
 
+# 1. 현재 칸 청소하고 4방향을 둘러보기
 def cleaner(pos, head):
-    global time
+    from collections import deque
+    global tsime
     global N, M
+    queue = deque([])
 
     x, y = pos
     # 현재 위치가 청소되지 않은 경우 청소
@@ -40,31 +43,46 @@ def cleaner(pos, head):
     
     # 반시계방향으로 회전하면서 청소 안한곳 찾기.
     for i in range(head, head+4):
-        head = (i//4) -1
-        nx = x + dx[head]
-        ny = y + dy[head]
-
-        if nx >= N or ny > M:
+        cur_head = (i%4) -1
+        nx = x + dx[cur_head]
+        ny = y + dy[cur_head]
+        
+        # 벽에 막혀있거나, 0보다 작은 위치는 못감
+        if nx >= N or ny >= M or nx < 0 or ny < 0:
             continue
         
         # nx, ny가 있으면 새로운 좌표로 이동해서 청소
         else:
-            map_list[nx][ny] = 0
-            cleaner((nx, ny), head)
+            if map_list[nx][ny] == 0:
+                queue.append([(nx, ny), cur_head])
+
+    if queue:
+        next_pos, n_head = queue.popleft()
+        cleaner(next_pos, n_head)
     
-    # 한칸 후진        
+    # 뒤로 한 칸 후진
+    else:
+
+
+# def cleaner(pos, head):
+    global time
+    global N, M
+
+    if find_dirt:
+    
+    
+    
+    # 고개는 유지한 채 한칸 후진
     else:
         nx = x - dx[head]
         ny = y - dy[head]
 
-        if nx >= N or ny > M:
-            return time
-        
-        elif map_list[nx][ny] == 0:
-            cleaner(((nx, ny), head))
+        # 만약 뒤로 돌아가서 
+        if nx >= N or ny > M:        
+            if map_list[nx][ny] == 0:
+                cleaner(((nx, ny), head))
 
-    return time
 
 pos = (r,c)
-
-print(cleaner(pos, head))
+cleaner(pos, head)
+print(time)

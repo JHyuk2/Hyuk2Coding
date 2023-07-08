@@ -1,4 +1,11 @@
-# https://www.acmicpc.net/group/practice/view/18210/1
+N, M = int(input().split())
 
-# 4 2 0 0 8 / (N x M), (x, y), K(명령의 개수)
-# 0 2
+temp_list1 = []
+temp_list2 = []
+for i in range(2*M):
+    temp = list(map(int, input().split()))
+    print(temp)
+    if i//M :
+        temp_list2 + temp
+    else:
+        temp_list1 + temp
