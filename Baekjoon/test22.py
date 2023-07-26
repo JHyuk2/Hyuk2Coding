@@ -1,21 +1,19 @@
-# 쉬운 회문
-# T = int(input())
+# GB = 0
+# A = 0
+# B = 100
 
-# for test_case in range(T):
-#     text = input()
+# while A < B:
+#     GB += 1
+#     A = GB * 9
+#     if GB >= 20:
+#         B = 100 + (GB-20) *3
+#     # GB < 20
+#     else:
+#         B = 100
 
-#     middle = len(text)//2
-#     print(text[:middle])
-#     print(reversed(text[-middle:]))
+# print(GB)    
 
+alpha = [1,1,2,2,2,2,2,3,3,3,]
 
-# text = input()
-# middle = len(text//2)
-
-# length = len(text)
-# text[:length] # 전체를 의미
-# text[:]
-# text[::-1] # text[0:length:1]
-import re
-temp_list = [1,2,3,4]
-
+cnt = alpha.count(1)
+print(cnt)
