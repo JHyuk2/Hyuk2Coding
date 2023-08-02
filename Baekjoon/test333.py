@@ -1,6 +1,5 @@
 import sys
 
-
 n = int(sys.stdin.readline())
 
 orders =[]
@@ -34,4 +33,4 @@ for order in orders:
             if order[0] == 'empty':
                 print(1)
             else:
-                print(-1)
+                print(-1)  
