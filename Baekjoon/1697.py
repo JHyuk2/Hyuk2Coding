@@ -20,7 +20,7 @@ while queue:
         visited[pos] = 1
 
         for n_pos in [pos-1, pos+1, pos*2]:
-            if n_pos < 100001 and not visited[n_pos]:
+            if (0 <= n_pos < 100001) and not visited[n_pos]:
                 queue.append((n_pos, cur_time+1))
     else:
         continue

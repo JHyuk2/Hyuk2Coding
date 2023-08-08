@@ -53,5 +53,5 @@ n = int(input())
 arr = list(map(int, input().split()))
 dc = find_danjo_decre(arr)
 di = find_danjo_incre(arr)
-result = di if di>dc else dc
+result = di if (di > dc) else dc
 print(result)
