@@ -1,4 +1,4 @@
-n = 66
+n = int(input())
 temp_sum = 0
 temp = 1 
 while n > temp_sum:
