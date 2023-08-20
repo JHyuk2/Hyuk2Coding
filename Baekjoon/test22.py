@@ -16,4 +16,4 @@
 alpha = [1,1,2,2,2,2,2,3,3,3,]
 
 cnt = alpha.count(1)
-print(cnt)
+print(sorted(alpha))
